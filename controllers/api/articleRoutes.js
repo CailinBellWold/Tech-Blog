@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Article } = require('../../models');
+const { Article, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
@@ -16,6 +16,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+//MAY NEED TO UPDATE TO VIEW WITHOUT UPDATING
 router.get("/:id", withAuth, async (req, res) => {  
   try {
     const articleData = await Article.findByPk(req.params.id, {
@@ -26,7 +27,7 @@ router.get("/:id", withAuth, async (req, res) => {
 
     const article = articleData.get({ plain: true });
 
-    res.render("updateArticle", {
+    res.render('updateArticle', {
       article,
       logged_in: req.session.logged_in,
     });

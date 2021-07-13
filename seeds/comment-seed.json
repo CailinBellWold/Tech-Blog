@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Test Comment A",
+    "user-id": 1,
+    "article_id": 1
+  },
+  {
+    "content": "Test Comment B",
+    "user-id": 1,
+    "article_id": 2
+  },
+  {
+    "content": "Test Comment C",
+    "user-id": 2,
+    "article_id": 3
+  },
+  {
+    "content": "Test Comment D",
+    "user-id": 2,
+    "article_id": 4
+  },
+  {
+    "content": "Test Comment E",
+    "user-id": 3,
+    "article_id": 5
+  },
+  {
+    "content": "Test Comment F",
+    "user-id": 3,
+    "article_id": 6
+  }
+]
