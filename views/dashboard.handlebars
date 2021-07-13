@@ -1,0 +1,43 @@
+        <div class='container-fluid'>
+            <section>
+                <div class='d-flex flex-row-reverse col-12'>
+                    <button class='btn btn-warning' id='btn-add'>+ Add Article</button>
+                </div>
+            </section>
+            
+            <section class='article-list'>
+                <div class='col-12'>
+                    <div class='card'>
+                        <h3 class='card-header'>My Articles</h3>
+                        <table class='table table-hover'>
+                            <thead>
+                                <tr>
+                                    <th scope='col'>Article Title</th>
+                                    <th scope='col'>Content</th>
+                                    <th scope='col'>Creation Date</th>
+                                    <th scope='col'>Last Updated</th>
+                                    <th scope='col'></th>
+                                </tr>
+                            </thead>
+                    {{#if articles.length}}
+                        {{#each articles as |article|}}
+                        <tbody>
+                            <tr><a href='/article/{{article.id}}'></a>
+                                <td scope='row'>{{article.title}}</th>
+                                <td id='content'>{{article.content}}</td>
+                                <td id='created-at'>{{article.created_at}}</td>
+                                <td id='updated_at'>{{article.updated_at}}</td>
+                                <td class='edit-btns'>
+                                    <button class='btn btn-warning' id='btn-update' data-id='{{article.id}}'>Update</button>
+                                    <button class='btn btn-danger' id='btn-delete' data-id='{{article.id}}'>Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        {{/each}}
+                    {{/if}}
+                    </div>
+                </div>
+            </section>
+        </div>
+
+<script src='./js/dashboard.js'></script>

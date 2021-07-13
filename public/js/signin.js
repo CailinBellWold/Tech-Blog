@@ -1,7 +1,7 @@
 const signinFormHandler = async (event) => {
     event.preventDefault();
   
-    // Collect values from the login form
+    // Collect values from the signin form
     const username = document.querySelector('#username-signin').value.trim();
     const password = document.querySelector('#password-signin').value.trim();
   
@@ -14,8 +14,8 @@ const signinFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        // If successful, redirect the browser to the profile page
-        document.location.replace('/userlanding');
+        // If successful, redirect the browser to their homepage
+        document.location.replace('/homepage');
       } else {
         alert(response.statusText);
       }
@@ -26,7 +26,7 @@ const signinFormHandler = async (event) => {
     document.location.replace('/signup');
 
   document
-    .querySelector('.signin-form')
+    .querySelector('.signinForm')
     .addEventListener('submit', signinFormHandler);
 
     document

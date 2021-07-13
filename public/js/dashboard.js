@@ -20,7 +20,7 @@ const deleteButtonHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/userlanding');
+      document.location.replace('/dashboard');
     } else {
       alert('Failed to delete article');
     }

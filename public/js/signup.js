@@ -12,7 +12,7 @@
       });
   
       if (response.ok) {
-        document.location.replace('/userlanding');
+        document.location.replace('/homepage');
       } else {
         alert(response.statusText);
       }
@@ -23,7 +23,7 @@
     document.location.replace('/signin');
 
     document
-    .querySelector('.signup-form')
+    .querySelector('.signupForm')
     .addEventListener('submit', signupFormHandler);
 
     document

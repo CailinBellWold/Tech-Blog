@@ -1,21 +1,15 @@
-//Do Articles need Comment ID foreign keys?
-
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Article extends Model {}
+class Comment extends Model {}
 
-Article.init(
+Comment.init(
   {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
-    },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false, 
     },
     content: {
       type: DataTypes.STRING,
@@ -25,15 +19,17 @@ Article.init(
       type: DataTypes.TIMESTAMP,
       defaultValue: CURRENT_TIMESTAMP,
     },
-    updated_at: {
-      type: DataTypes.TIMESTAMP,
-      defaultValue: NULL,
-      onUpdate: CURRENT_TIMESTAMP,
-    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
+        key: 'id',
+      },
+    },
+    article_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'article',
         key: 'id',
       },
     },
@@ -43,8 +39,8 @@ Article.init(
     freezeTableName: true,
     // timestamps: true,
     underscored: true,
-    modelName: 'Article',
+    modelName: 'Comment',
   }
 );
 
-module.exports = Article;
+module.exports = Comment;

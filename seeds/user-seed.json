@@ -1,17 +1,17 @@
 [
   {
     "id": 1,
-    "username": "karen@small.com",
-    "password": "1password"
+    "username": "Imani_Williams",
+    "password": "password"
   },
   {
     "id": 2,
-    "username": "victor@smith.com",
-    "password": "password1"
+    "username": "Darius_Hernandez",
+    "password": "password"
   },
   {
     "id": 3,
-    "username": "david@sequel.com",
-    "password": "password123"
+    "username": "Amy_Choi",
+    "password": "password"
   }
 ]

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Gift List">   
+    <meta name="keywords" content="Tech, Blog">
+    <meta name="author" content="Cailin Bell Wold">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--Stylesheets-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?&family=Poppins:wght@200;300;400;500&family=Roboto:wght@300;400;500;700&display=swap" >
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Gift List</title>
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.png"/>
+</head>
+
+<body>
+    <header>
+        <nav class='navbar navbar-expand-lg navbar-light fixed-top px-3 giftlist-navbar'>
+            <img src='/images/gift-list-logo.png' alt='Gift List logo'>
+            <div class='collapse navbar-collapse' id='navbarSupportedContent'></div>
+                <ul class='navbar-nav'>
+                <!-- Conditionally render login or logout links -->
+                {{#if logged_in}}
+                <li class='nav-item'><a class='nav-link btn btn-secondary' id='btn-signout' href='/' rel='noreferrer noopener'>Sign Out</a></li>
+                {{!-- <li class="nav-item"><a class="nav-link btn btn-primary" href="/userlanding" rel="noreferrer noopener">Gift List</a></li> --}}
+                {{else}}
+                <li class='nav-item'><a class='nav-link btn btn-secondary' id='btn-signin' href='/signin' rel='noreferrer noopener'>Sign In</a></li>
+                <li class='nav-item'><a class='nav-link btn btn-primary' id='btn-signup' href='/signup' rel='noreferrer noopener'>Sign Up</a></li>
+                {{/if}}
+            </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class='container'>
+            <!-- Render the sub layout -->
+            {{{ body }}}
+        </div>
+    </main>
+
+    <footer class='footer'>
+        <section id='contact' class='text-center py-4 align-items-center cmb-contact'>
+            <h4>Contact</h4>
+            <a class='px-3' href='https://github.com/CailinBellWold/Tech-Blog' target='_blank' rel='noreferrer noopener'> 
+                <i class='fab fa-github cmb-fa'></i>
+            </a>
+            <a class='px-3' href='mailto:cmbellwold@gmail.com?subject=Contact from Tech Blog Site' target='_blank' rel='noreferrer noopener'>
+                <i class='fas fa-envelope cmb-fa'></i>
+            </a>
+        </section>
+    
+        <div class='text-center p-3 cmb-madeforyou'>
+            <p>©2021 Cailin Bell Wold</p>
+        </div>
+    </footer>
+    
+    {{!-- Render script for logged in users only --}}
+    {{#if logged_in}}
+    <script src="/js/signout.js"></script>
+    {{/if}}
+
+<!--Scripts for Bootstrap-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

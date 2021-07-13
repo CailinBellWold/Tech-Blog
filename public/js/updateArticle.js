@@ -1,4 +1,4 @@
-const newFormHandler = async (event) => {
+const updateArticleFormHandler = async (event) => {
   event.preventDefault();
   const url = window.location.href;
   // https://stackoverflow.com/questions/3730359/get-id-from-url-with-jquery
@@ -16,7 +16,7 @@ const newFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/userlanding');
+      document.location.replace('/dashboard');
     } else {
       alert('Failed to update article.');
     }
@@ -24,12 +24,12 @@ const newFormHandler = async (event) => {
 };
 
 const cancelButtonHandler = async () => {
-  document.location.replace('/userlanding');
+  document.location.replace('/dashboard');
 }
 
 document
-  .querySelector('.update-Article-Form')
-  .addEventListener('submit', newFormHandler);
+  .querySelector('.updateArticleForm')
+  .addEventListener('submit', updateArticleFormHandler);
 
   document
   .querySelector('#btn-cancel')
