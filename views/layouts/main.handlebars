@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Gift List">   
+    <meta name="description" content="Tech Blog">   
     <meta name="keywords" content="Tech, Blog">
     <meta name="author" content="Cailin Bell Wold">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,20 +14,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?&family=Poppins:wght@200;300;400;500&family=Roboto:wght@300;400;500;700&display=swap" >
     <link rel="stylesheet" href="/css/style.css">
-    <title>Gift List</title>
+    <title>Tech Blog</title>
     <link rel="shortcut icon" type="image/png" href="/images/favicon.png"/>
 </head>
 
 <body>
     <header>
-        <nav class='navbar navbar-expand-lg navbar-light fixed-top px-3 giftlist-navbar'>
-            <img src='/images/gift-list-logo.png' alt='Gift List logo'>
+        <nav class='navbar navbar-expand-lg navbar-light fixed-top px-3 techblog-navbar'>
+            {{!-- <img src='/images/' alt='Tech Blog logo'> --}}
             <div class='collapse navbar-collapse' id='navbarSupportedContent'></div>
                 <ul class='navbar-nav'>
                 <!-- Conditionally render login or logout links -->
                 {{#if logged_in}}
                 <li class='nav-item'><a class='nav-link btn btn-secondary' id='btn-signout' href='/' rel='noreferrer noopener'>Sign Out</a></li>
-                {{!-- <li class="nav-item"><a class="nav-link btn btn-primary" href="/userlanding" rel="noreferrer noopener">Gift List</a></li> --}}
+                {{!-- <li class="nav-item"><a class="nav-link btn btn-primary" href="/dashboard" rel="noreferrer noopener">Tech Blog</a></li> --}}
                 {{else}}
                 <li class='nav-item'><a class='nav-link btn btn-secondary' id='btn-signin' href='/signin' rel='noreferrer noopener'>Sign In</a></li>
                 <li class='nav-item'><a class='nav-link btn btn-primary' id='btn-signup' href='/signup' rel='noreferrer noopener'>Sign Up</a></li>

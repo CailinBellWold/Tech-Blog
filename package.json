@@ -1,0 +1,38 @@
+{
+  "name": "tech-blog",
+  "version": "1.0.0",
+  "description": "Tech Blog",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js",
+    "watch": "nodemon server.js",
+    "seed": "node seeds/seed.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CailinBellWold/Tech-Blog.git"
+  },
+  "keywords": [
+    "Tech",
+    "Blog",
+    "Homework"
+  ],
+  "author": "Cailin Bell Wold",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CailinBellWold/Tech-Blog/issues"
+  },
+  "homepage": "https://github.com/CailinBellWold/Tech-Blog#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.2",
+    "express-session": "^1.17.2",
+    "bcrypt": "^5.0.0",
+    "connect-session-sequelize": "^7.0.4",
+    "dotenv": "^8.2.0",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.7",
+    "sequelize": "^6.3.5"
+  }
+}

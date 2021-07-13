@@ -22,14 +22,15 @@ Article.init(
       allowNull: false,
     },
     created_at: {
-      type: DataTypes.TIMESTAMP,
-      defaultValue: CURRENT_TIMESTAMP,
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
-    updated_at: {
-      type: DataTypes.TIMESTAMP,
-      defaultValue: NULL,
-      onUpdate: CURRENT_TIMESTAMP,
-    },
+    // updated_at: {
+    //   type: DataTypes.TIMESTAMP,
+    //   defaultValue: NULL,
+    //   onUpdate: DataTypes.CURRENT_TIMESTAMP,
+    // },
     user_id: {
       type: DataTypes.INTEGER,
       references: {

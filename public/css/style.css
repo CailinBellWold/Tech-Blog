@@ -38,7 +38,7 @@ main {
     width: 100vw;
 }
 
-.giftlist-navbar {
+.techblog-navbar {
     background-image: linear-gradient(var(--c-goldenrod), var(--c-burlywood));
     box-shadow: 8px 10px 20px var(--c-dneutral);
 }
