@@ -30,7 +30,7 @@ User.init(
       allowNull: false,
       validate: {
         len: [8],
-        is: [/^[a-z]+$/i],
+        // is: [/^[a-z]+$/i],
         // msg: "Passwords must be a minimum of 8 characters in length."
       },
     },
