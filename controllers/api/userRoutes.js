@@ -1,10 +1,11 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-// Create a new user and log them in.
+// Create a new user and sign them in.
 router.post('/signup', async (req, res) => {
   try {
     const userData = await User.create(req.body);
+    console.log("Signin Route", req.body);
 
     req.session.save(() => {
       req.session.user_id = userData.id;
@@ -13,10 +14,12 @@ router.post('/signup', async (req, res) => {
       res.status(200).json(userData);
     });
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });
 
+// Sign in an existing user.
 router.post('/signin', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { username: req.body.username } });
@@ -49,6 +52,7 @@ router.post('/signin', async (req, res) => {
   }
 });
 
+// Sign a user out.
 router.post('/signout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {

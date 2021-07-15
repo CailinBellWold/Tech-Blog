@@ -22,7 +22,6 @@ User.init(
       unique: true,
       validate: {
         len: [2,36],
-        msg: "Usernames must be between 2 and 36 characters."
       },
     },
     password: {

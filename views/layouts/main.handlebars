@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Tech Blog">   
+    <meta name="description" content="The Tech Blog">   
     <meta name="keywords" content="Tech, Blog">
     <meta name="author" content="Cailin Bell Wold">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,17 +20,20 @@
 
 <body>
     <header>
-        <nav class='navbar navbar-expand-lg navbar-light fixed-top px-3 techblog-navbar'>
-            {{!-- <img src='/images/' alt='Tech Blog logo'> --}}
-            <div class='collapse navbar-collapse' id='navbarSupportedContent'></div>
-                <ul class='navbar-nav'>
+        <nav class='navbar navbar-expand-lg navbar-dark bg-dark fixed-top px-3'>
+            <a class='navbar-brand' href='/'>The Tech Blog</a>
+            <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
+            <span class='navbar-toggler-icon'></span>
+            </button>
+                <ul class='collapse navbar-collapse list-unstyled justify-content-end pt-3' id='navbarSupportedContent'>
+                    <li class='nav-item'><a class='nav-link' href='/'>Home</a></li>
+                    <li class='nav-item'><a class='nav-link' href='/dashboard'>Dashboard</a></li>
                 <!-- Conditionally render login or logout links -->
                 {{#if logged_in}}
-                <li class='nav-item'><a class='nav-link btn btn-secondary' id='btn-signout' href='/' rel='noreferrer noopener'>Sign Out</a></li>
-                {{!-- <li class="nav-item"><a class="nav-link btn btn-primary" href="/dashboard" rel="noreferrer noopener">Tech Blog</a></li> --}}
+                <li class='nav-item'><a class='nav-link' id='btn-signout' href='/' rel='noreferrer noopener'>Sign Out</a></li>
                 {{else}}
-                <li class='nav-item'><a class='nav-link btn btn-secondary' id='btn-signin' href='/signin' rel='noreferrer noopener'>Sign In</a></li>
-                <li class='nav-item'><a class='nav-link btn btn-primary' id='btn-signup' href='/signup' rel='noreferrer noopener'>Sign Up</a></li>
+                <li class='nav-item'><a class='nav-link' id='btn-signin' href='/signin' rel='noreferrer noopener'>Sign In</a></li>
+                <li class='nav-item'><a class='nav-link' id='btn-signup' href='/signup' rel='noreferrer noopener'>Sign Up</a></li>
                 {{/if}}
             </ul>
             </div>
@@ -44,8 +47,8 @@
         </div>
     </main>
 
-    <footer class='footer'>
-        <section id='contact' class='text-center py-4 align-items-center cmb-contact'>
+    <footer class='footer bg-dark'>
+        <section id='contact' class='text-center py-4 align-items-center'>
             <h4>Contact</h4>
             <a class='px-3' href='https://github.com/CailinBellWold/Tech-Blog' target='_blank' rel='noreferrer noopener'> 
                 <i class='fab fa-github cmb-fa'></i>
@@ -60,7 +63,7 @@
         </div>
     </footer>
     
-    {{!-- Render script for logged in users only --}}
+    {{!-- Render script for signed in users only --}}
     {{#if logged_in}}
     <script src="/js/signout.js"></script>
     {{/if}}

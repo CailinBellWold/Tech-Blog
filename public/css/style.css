@@ -33,14 +33,17 @@ body {
 }
 
 main {
-    padding-top: 12rem;
+    padding-top: 7rem;
     padding-bottom: 13rem;
     width: 100vw;
 }
 
-.techblog-navbar {
-    background-image: linear-gradient(var(--c-goldenrod), var(--c-burlywood));
-    box-shadow: 8px 10px 20px var(--c-dneutral);
+nav:a:link,
+nav:a:visited,
+nav:a:hover,
+nav:a:active { 
+    text-decoration: none;
+    color: var(--c-lneutral);
 }
 
 h3, h4, h5 {
