@@ -14,7 +14,7 @@
       });
   
       if (response.ok) {
-        document.location.replace('/homepage');
+        document.location.replace('/');
       } else {
         console.log(err);
         alert(response.statusText);

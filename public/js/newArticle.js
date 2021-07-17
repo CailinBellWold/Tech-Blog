@@ -1,13 +1,13 @@
 const newArticleFormHandler = async (event) => {
   event.preventDefault();
   // Collect values from the /newArticle form
-  const articleTitle = document.getElementById('new-Article-Title').value.trim();
-  const articleContent = document.getElementById('new-Article-Content').value.trim();
+  const title = document.getElementById('new-Article-Title').value.trim();
+  const content = document.getElementById('new-Article-Content').value.trim();
 
-  if (articleTitle && articleContent) {
+  if (title && content) {
     const response = await fetch('/api/articles', {
       method: 'POST',
-      body: JSON.stringify({ articleTitle, articleContent }),
+      body: JSON.stringify({ title, content }),
       headers: { "Content-Type": "application/json" },
     });
 
@@ -16,16 +16,6 @@ const newArticleFormHandler = async (event) => {
     } else {
       alert(response.statusText);
     }
-  }
-
-  const response = await fetch(`/api/articles/${id}`, {
-    method: 'POST',
-  });
-
-  if (response.ok) {
-    document.location.replace('/dashboard');
-  } else {
-    alert('Failed to add article.');
   }
 };
 

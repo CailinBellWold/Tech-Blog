@@ -17,7 +17,7 @@ const signinFormHandler = async (event) => {
   
       if (response.ok) {
         // If successful, redirect the browser to their homepage
-        document.location.replace('/homepage');
+        document.location.replace('/');
       } else {
         alert(response.statusText);
       }

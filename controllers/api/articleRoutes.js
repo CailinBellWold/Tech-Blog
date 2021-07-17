@@ -3,6 +3,7 @@ const { Article, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
+  const body = req.body;
   try {
     const newArticle = await Article.create({
       ...req.body,
@@ -10,6 +11,7 @@ router.post('/', withAuth, async (req, res) => {
     });
 
     res.status(200).json(newArticle);
+
   } catch (err) {
     console.log(err);
     res.status(400).json(err);

@@ -5,7 +5,7 @@ const signoutButtonHandler = async () => {
     });
   
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace('/signin');
     } else {
       alert(response.statusText);
     }

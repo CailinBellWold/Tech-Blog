@@ -37,7 +37,7 @@ router.get('/', async (req, res) => {
 router.get('/signin', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/homepage');
+    res.redirect('/');
     return;
   }
   res.render('signin');
@@ -46,11 +46,20 @@ router.get('/signin', (req, res) => {
 router.get('/signup', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/homepage');
+    res.redirect('/');
     return;
   }
 
   res.render('signup');
+});
+
+router.get('/newArticle', withAuth, async (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  if (req.session.logged_in) {
+    res.render('newArticle');
+  } else {
+  res.redirect('/signin');
+  }
 });
 
 // Use withAuth middleware to prevent access to route
