@@ -20,9 +20,10 @@
 
 <body>
     <header>
-        <nav class='navbar navbar-expand-lg navbar-dark bg-dark fixed-top px-3'>
+        {{!-- <nav class='navbar navbar-expand-lg navbar-dark bg-dark fixed-top px-3 techblog-nav'> --}}
+        <nav class='navbar navbar-expand-lg fixed-top px-3 techblog-nav'>
             <a class='navbar-brand' href='/'>The Tech Blog</a>
-            <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
+            <button class='navbar-toggler custom-toggler' id='hamburger' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
             <span class='navbar-toggler-icon'></span>
             </button>
                 <ul class='collapse navbar-collapse list-unstyled justify-content-end pt-3' id='navbarSupportedContent'>
@@ -47,7 +48,7 @@
         </div>
     </main>
 
-    <footer class='footer bg-dark'>
+    {{!-- <footer class='footer bg-dark'>
         <section id='contact' class='text-center py-4 align-items-center'>
             <h4>Contact</h4>
             <a class='px-3' href='https://github.com/CailinBellWold/Tech-Blog' target='_blank' rel='noreferrer noopener'> 
@@ -61,7 +62,7 @@
         <div class='text-center p-3 cmb-madeforyou'>
             <p>©2021 Cailin Bell Wold</p>
         </div>
-    </footer>
+    </footer> --}}
     
     {{!-- Render script for signed in users only --}}
     {{#if logged_in}}

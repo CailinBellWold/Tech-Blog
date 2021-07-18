@@ -1,23 +1,26 @@
 <div class='container-fluid'>
-  <div class='row'>
-    <div class='col-md-5'>
-      <h2>Sign In</h2>
-      <form class='signinForm'>
-        <div class='form-group'>
-          <label for='username'>Username</label>
-          <input type='text' class='form-control' id='username-signin' placeholder='Enter Username'>
+  <section class='sign-in-form'>
+    <div class='row justify-content-center'>
+      <div class='col-md-5'>
+        <h2>Sign In</h2>
+          <form class='signinForm'>
+            <div class='form-group'>
+              <label for='username'>Username</label>
+              <input type='text' class='form-control' id='username-signin' placeholder='Enter Username'>
+            </div>
+            <div class='form-group'>
+              <label for='password'>Password</label>
+              <input type='password' class='form-control' id='password-signin' placeholder='Enter password'>
+            </div>
+            <div class='btn-group'>
+              <button class='btn btn-primary' id='btn-signin' type='submit'>Sign In</button>
+              <div><a class='btn my-2' id='btn-signup' href='/signup' rel='noreferrer noopener'>Sign Up</a></div>
+            </div>
+          </form>
         </div>
-        <div class='form-group'>
-          <label for='password'>Password</label>
-          <input type='password' class='form-control' id='password-signin' placeholder='Enter password'>
-        </div>
-        <div class='btn-group'>
-          <button class='btn btn-primary' id='btn-signin' type='submit'>Sign In</button>
-          <div><a class='btn' id='btn-signup' href='/signup' rel='noreferrer noopener'>Sign Up</a></div>
-        </div>
-      </form>
+      </div>
     </div>
-  </div>
+  </section>
 </div>
 
 <script src='./js/signin.js'></script>
