@@ -1,6 +1,6 @@
 const newArticleFormHandler = async (event) => {
   event.preventDefault();
-  // Collect values from the /newArticle form
+
   const title = document.getElementById('new-Article-Title').value.trim();
   const content = document.getElementById('new-Article-Content').value.trim();
 

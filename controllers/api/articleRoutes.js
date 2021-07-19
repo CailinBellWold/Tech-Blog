@@ -41,14 +41,19 @@ router.get("/:id", withAuth, async (req, res) => {
 
 router.put('/:id', withAuth, async (req, res) => {
   try {
-    const articleData = await Article.update(req.body, {
+    const articleData = await Article.update(
+    {
+      title: req.body.title,
+      content: req.body.content,
+    },
+    {
       where: {
         id: req.params.id,
       },
     });
 
     if (!articleData) {
-      res.status(404).json({ message: 'No item(s) found with this id!' });
+      res.status(404).json({ message: 'No article found with this id.' });
       return;
     }
 
