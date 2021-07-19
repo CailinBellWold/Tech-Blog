@@ -63,7 +63,7 @@ body {
 } 
 
 main {
-    padding-top: 7rem;
+    padding-top: 8rem;
     padding-bottom: 13rem;
     width: 100vw;
 }
@@ -112,6 +112,13 @@ h5 {
 .signinForm.label {
     color: var(--c-bu)
 }
+
+/* .welcome {
+    border-radius: 6px;
+    border: 4em;
+    border-color: var(--c-buttercream);
+    background-color: var(--c-frenchblue);
+} */
 /* .cmb-fa {
     text-decoration: none;
     color: var(--c-lneutral);
