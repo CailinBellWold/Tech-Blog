@@ -40,11 +40,12 @@ router.get("/:id", withAuth, async (req, res) => {
 });
 
 router.put('/:id', withAuth, async (req, res) => {
+  console.log(" >>>>>>Server Req.body", req.body);
   try {
     const articleData = await Article.update(
     {
-      title: req.body.title,
-      content: req.body.content,
+      title: req.body.articleTitle,
+      content: req.body.articleContent,
     },
     {
       where: {

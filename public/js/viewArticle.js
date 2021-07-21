@@ -4,7 +4,7 @@ const updateArticleFormHandler = async (event) => {
   const id = request.params.id;
   const articleTitle = document.getElementById('articleTitle').value.trim();
   const articleContent = document.getElementById('articleContent').value.trim();
-  const articleComment = document.
+  // const articleComment = document.
 
   if (articleTitle && articleContent) {
     const response = await fetch(`/api/article/${id}`, {
