@@ -78,9 +78,10 @@ router.get('/newArticle', withAuth, async (req, res) => {
 });
 
 //Should this be articles/:id?
-router.get('/:id', async (req, res) => {
+router.get('/articles/:id', async (req, res) => {
+  console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>FIND ME");
   try {
-    const articleData = await Article.findbyPk(req.params.id, {
+    const articleData = await Article.findByPk(req.params.id, {
       include: [
         {
           model: Comment,
@@ -93,10 +94,12 @@ router.get('/:id', async (req, res) => {
       ],
     });
 
-    const articles = articleData.map((article) => article.get({ plain: true }));
+    const articleSingle = articleData.get({ plain: true });
+
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>ArticleSingle inside get rt", articleSingle);
 
     res.render('viewArticle', { 
-      articles, 
+      articleSingle, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {

@@ -2,12 +2,12 @@
   <section class='article-view'>
     <div class='col-12'>
       <div class='card-deck'>
-        <div class='card my-4' data-id='{{article.id}}'>
+        <div class='card my-4' data-id='{{articleSingle.id}}'>
           <div class='card-header text-light bg-dark'>
             <h3>{{article.title}}</h3>
-              <small class='text-right'>Posted by {{user.username}} on {{article.created_at}}</small>
+              <small class='text-right'>Posted by {{user.username}} on {{articleSingle.created_at}}</small>
           </div>
-          <div class='card-body' id='content'>{{article.content}}</div>
+          <div class='card-body' id='content'>{{articleSingle.content}}</div>
         </div>
       </div>
     </div>

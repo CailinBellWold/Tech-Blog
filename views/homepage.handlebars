@@ -4,14 +4,12 @@
             <section class='article-list'>
                 <div class='col-12'>
                     <div class='card-deck'>
-                        <div class='card my-4' data-id='{{article.id}}'><a href='/article/{{article.id}}'></a>
+                        <div class='card my-4' data-id='{{article.id}}'><a href='/articles/{{article.id}}'>
                             <div class='card-header text-light bg-dark'>
                                 <h3>{{article.title}}</h3>
                                 <small class='text-right'>Posted by {{user.username}} on {{article.created_at}}</small>
                             </div>
-                            <div class='card-body' id='content'>{{article.content}}</div>
-                                {{!-- <button class='btn btn-warning' id='btn-update' data-id='{{article.id}}'>Update</button>
-                                <button class='btn btn-danger' id='btn-delete' data-id='{{article.id}}'>Delete</button> --}}
+                            <div class='card-body' id='content'>{{article.content}}</div></a>
                         </div>
                     </div>
                 </div>
