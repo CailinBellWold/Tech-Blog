@@ -18,7 +18,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-//MAY NEED TO UPDATE TO VIEW WITHOUT UPDATING
+//QUESTIONS: I think that Everyone can see articles, it's only the comments that need a with-auth, right?
 router.get("/:id", withAuth, async (req, res) => {  
   try {
     const articleData = await Article.findByPk(req.params.id, {

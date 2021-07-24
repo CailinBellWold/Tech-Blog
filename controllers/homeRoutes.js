@@ -45,14 +45,6 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-router.get('/newArticle', withAuth, async (req, res) => {
-  if (req.session.logged_in) {
-    res.render('newArticle');
-  } else {
-  res.redirect('/signin');
-  }
-});
-
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const articleData = await Article.findAll({
@@ -73,6 +65,41 @@ router.get('/dashboard', withAuth, async (req, res) => {
     });
   } catch (err) {
     console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/newArticle', withAuth, async (req, res) => {
+  if (req.session.logged_in) {
+    res.render('newArticle');
+  } else {
+  res.redirect('/signin');
+  }
+});
+
+//Should this be articles/:id?
+router.get('/:id', async (req, res) => {
+  try {
+    const articleData = await Article.findbyPk(req.params.id, {
+      include: [
+        {
+          model: Comment,
+          attributes: ['content'],
+        },
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
+    });
+
+    const articles = articleData.map((article) => article.get({ plain: true }));
+
+    res.render('viewArticle', { 
+      articles, 
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
     res.status(500).json(err);
   }
 });

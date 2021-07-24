@@ -5,11 +5,6 @@ const updateArticleFormHandler = async (event) => {
   const articleTitle = document.getElementById('articleTitle').value.trim();
   const articleContent = document.getElementById('articleContent').value.trim();
 
-  // console.log ("BTN SAVE", document.querySelector('#btn-save').getAttribute('data-id')); //WORKS
-  // console.log('Article Title from upd article FH', articleTitle); //WORKS
-  // console.log('Article Content from upd article FH', articleContent); //WORKS
-  // console.log('Data ID attribute', event.target.getAttribute('data-id')); //Doesn't work
-  
   if (id) {
     const response = await fetch(`/api/articles/${id}`, {
       method: 'PUT',

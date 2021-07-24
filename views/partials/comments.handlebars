@@ -1,0 +1,18 @@
+{{#if comments.length}}
+    {{#each comments as |comment|}}
+        <section class='comments-view'>
+            <div class='col-12'>
+                <div class='card-deck'>
+                    <div class='card my-4' data-id='{{comment.id}}'>
+                        <div class='card-header text-light bg-dark'>
+                            {{!-- This looks empty on the example --}}
+                        </div>
+                        <div class='card-body' id='content'>{{comment.content}}
+                            <small class='text-right'>Posted by {{user.username}} on {{comment.created_at}}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {{/each}}
+{{/if}}

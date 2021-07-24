@@ -1,21 +1,60 @@
 <div class='container-fluid'>
-  <div class='row'>
-    <div class='col-md-5'>
-      <h2>View Article</h2>
-      <form class='viewArticleForm'>
-        <div class='form-group'>
-          <label for='article-title'>Title</label>
-          <input type='text' class='form-control' id='articleTitle' value='{{article.title}}'>
+  <section class='article-view'>
+    <div class='col-12'>
+      <div class='card-deck'>
+        <div class='card my-4' data-id='{{article.id}}'>
+          <div class='card-header text-light bg-dark'>
+            <h3>{{article.title}}</h3>
+              <small class='text-right'>Posted by {{user.username}} on {{article.created_at}}</small>
+          </div>
+          <div class='card-body' id='content'>{{article.content}}</div>
         </div>
-        <div class='form-group'>
-          <label for='article-content'>Content</label>
-          <input type='text' class='form-control' id='articleContent' value='{{article.content}}'>
-        </div>
-        <button class='btn btn-primary submit' id='btn-comment' type='submit'>Comment</button>
-        {{!-- <button class='btn btn-warning submit' id='btn-cancel' type='reset'>Cancel</button> --}}
-      </form>
+      </div>
     </div>
-  </div>
-</div>
+  </section>
 
+  {{#if logged_in}}
+  <section class='comment-new'>
+    <form class='newCommentForm'>
+      <div class='form-group'>
+      <div class='form-group'>
+        <label for='comment-content'>Comment</label>
+        <input type='text' class='form-control' id='newCommentContent' placeholder='Enter your text here.'>
+      </div>
+      <div class='btn-group'>
+        <button class='btn btn-primary submit' id='btn-comment' data-id='{{article.id}}' type='submit'>Submit Comment</button>
+        <button class='btn btn-warning submit' id='btn-cancel' type='reset'>Cancel</button>
+      </div>
+    </form>
+  </section>
+
+  {{else}}
+  {{!-- Something that asks the user to sign in or sign up to comment, directs them to sign in/up page, then automatically returns them to this comment's page.
+  <li class='nav-item'><a class='nav-link' id='btn-signin' href='/signin' rel='noreferrer noopener'>Sign In</a></li>
+  <li class='nav-item'><a class='nav-link' id='btn-signup' href='/signup' rel='noreferrer noopener'>Sign Up</a></li> --}}
+  {{/if}}
+
+{{!-- QUESTION: Should this be a partial? Trying to figure out how to seperate out user.username for comment from same info on article... --}}
+  {{#if comments.length}}
+    {{#each comments as |comment|}}
+  <section class='comments-view'>
+    <div class='col-12'>
+      <div class='card-deck'>
+        <div class='card my-4' data-id='{{comment.id}}'>
+          <div class='card-header text-light bg-dark'>
+              {{!-- This looks empty on the example --}}
+          </div>
+          <div class='card-body' id='content'>{{comment.content}}
+            <small class='text-right'>Posted by {{user.username}} on {{comment.created_at}}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    {{/each}}
+  {{/if}}
+
+
+
+</div>
 <script src='./js/viewArticle.js'></script>

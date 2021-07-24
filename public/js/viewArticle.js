@@ -1,36 +1,32 @@
-const updateArticleFormHandler = async (event) => {
+const newCommentFormHandler = async (event) => {
   event.preventDefault();
-  // const url = window.location.href;
-  const id = request.params.id;
-  const articleTitle = document.getElementById('articleTitle').value.trim();
-  const articleContent = document.getElementById('articleContent').value.trim();
-  // const articleComment = document.
 
-  if (articleTitle && articleContent) {
-    const response = await fetch(`/api/article/${id}`, {
-      method: 'PUT',
-      body: JSON.stringify({ articleTitle, articleContent }),
-      headers: {
-        "Content-Type": "application/json",
-      },
+  const article_id = document.getElementById('btn-save').getAttribute('data-id');
+  const content = document.getElementById('newCommentContent').value.trim();
+
+  if (content) {
+    const response = await fetch('/api/comments', {
+      method: 'POST',
+      body: JSON.stringify({ content, article_id }),
+      headers: { "Content-Type": "application/json" },
     });
 
     if (response.ok) {
-      document.location.replace('/dashboard');
+      document.location.reload();
     } else {
-      alert('Failed to update article.');
+      alert(response.statusText);
     }
   }
 };
 
-const commentButtonHandler = async () => {
-  document.location.replace('/comment');
+const cancelButtonHandler = async () => {
+  document.location.replace('/viewArticle');
 }
 
 document
-  .querySelector('.updateArticleForm')
-  .addEventListener('submit', updateArticleFormHandler);
+  .querySelector('.newCommentForm')
+  .addEventListener('submit', newCommentFormHandler);
 
   document
-  .querySelector('#btn-comment')
-  .addEventListener('submit', commentButtonHandler);
+  .querySelector('#btn-cancel')
+  .addEventListener('reset', cancelButtonHandler);
