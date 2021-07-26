@@ -1,8 +1,10 @@
 const newCommentFormHandler = async (event) => {
   event.preventDefault();
 
-  const article_id = document.getElementById('btn-save').getAttribute('data-id');
+  const article_id = document.getElementById('btn-comment').getAttribute('data-id');
   const content = document.getElementById('newCommentContent').value.trim();
+
+  console.log("Article ID and Content From FH", article_id, content);
 
   if (content) {
     const response = await fetch('/api/comments', {
