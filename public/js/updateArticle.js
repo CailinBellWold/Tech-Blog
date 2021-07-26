@@ -6,7 +6,7 @@ const updateArticleFormHandler = async (event) => {
   const articleContent = document.getElementById('articleContent').value.trim();
 
   if (id) {
-    const response = await fetch(`/api/articles/${id}`, {
+    const response = await fetch(`/api/articles/updateArticle/${id}`, {
       method: 'PUT',
       body: JSON.stringify({ articleTitle, articleContent }),
       headers: {
@@ -33,5 +33,5 @@ document
   .addEventListener('submit', updateArticleFormHandler);
 
 document
-  .querySelector('#btn-cancel')
+  .getElementByID('btn-cancel')
   .addEventListener('reset', cancelButtonHandler);

@@ -31,8 +31,8 @@ Build a CMS-style blog site similar to a Wordpress site, where developers can pu
 6. When a user revisits the site at a later time and choose to sign in, they are prompted to enter their username and password.
 7. When a user is signed in to the site, they see navigation links for the homepage, the dashboard, and the option to log out.
 8. When a user clicks on the homepage option in the navigation, then they are taken to the homepage and presented with existing blog posts that include the post title and the date created.
-9. (IN PROGRESS) When a user clicks on an existing blog post, they are presented with the post title, contents, post creator’s username, and date created for that post and have the option to leave a comment.
-10. (IN PROGRESS) When a user enters a comment and clicks on the submit button while signed in, the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created.
+9. When a user clicks on an existing blog post, they are presented with the post title, contents, post creator’s username, and date created for that post and have the option to leave a comment.
+10. When a user enters a comment and clicks on the submit button while signed in, the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created.
 11. When a user clicks on the dashboard option in the navigation, they are taken to the dashboard and presented with any blog posts they have already created and the option to add a new blog post.
 12. When a user clicks on the button to add a new blog post, they are prompted to enter both a title and contents for my blog post.
 13. When a user clicks on the button to create a new blog post, the title and contents of their post are saved and they are taken back to an updated dashboard with the new blog post.

@@ -5,7 +5,7 @@ const newArticleFormHandler = async (event) => {
   const content = document.getElementById('new-Article-Content').value.trim();
 
   if (title && content) {
-    const response = await fetch('/api/articles', {
+    const response = await fetch('/api/articles/newArticle', {
       method: 'POST',
       body: JSON.stringify({ title, content }),
       headers: { "Content-Type": "application/json" },

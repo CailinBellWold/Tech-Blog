@@ -2,7 +2,8 @@ const router = require('express').Router();
 const { Article } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/', withAuth, async (req, res) => {
+//WORKS
+router.post('/newArticle', withAuth, async (req, res) => {
   // const body = req.body;
   try {
     const newArticle = await Article.create({
@@ -18,27 +19,28 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/:id', async (req, res) => {  
-  try {
-    const articleData = await Article.findByPk(req.params.id, {
-      where: {
-        user_id: req.session.user_id,
-      },
-    });
+//From Dashboard, click Update Article
+// router.get('/updateArticle/:id', withAuth, async (req, res) => {  
+//   try {
+//     const articleData = await Article.findByPk(req.params.id, {
+//       where: {
+//         user_id: req.session.user_id,
+//       },
+//     });
 
-    const article = articleData.get({ plain: true });
+//     const article = articleData.get({ plain: true });
 
-    res.render('updateArticle', {
-      article,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+//     res.render('updateArticle', {
+//       article,
+//       logged_in: req.session.logged_in,
+//     });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
-router.put('/:id', withAuth, async (req, res) => {
+router.put('/updateArticle/:id', withAuth, async (req, res) => {
   try {
     const articleData = await Article.update(
     {

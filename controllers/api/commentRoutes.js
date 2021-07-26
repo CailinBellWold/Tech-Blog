@@ -1,10 +1,26 @@
 const router = require('express').Router();
-const { Comment } = require('../../models');
+const { Comment, Article, User} = require('../../models');
 const withAuth = require('../../utils/auth');
 
+//We are always getting all comments by the Article ID. Is this route right, or should it just be /?
 router.get('/', async (req, res) => {
   try {
-    const commentData = await Comment.findAll({});
+    const commentData = await Comment.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+        {
+          model: Article,
+          attributes: ['username'],
+        },
+      ],
+      where: {
+          article_id: req.params.id,
+        },
+      order: [['created_at', 'ASC']],
+    });
 
     const comments = commentData.map((comment) => comment.get({ plain: true }));
 
@@ -12,14 +28,12 @@ router.get('/', async (req, res) => {
       comments, 
       logged_in: req.session.logged_in 
     });
-
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 router.post('/', withAuth, async (req, res) => {
-  console.log(">>>>>>>>>>>>>>>>>>>>New Comment Post ROUTE");
   try {
     const newComment = await Comment.create({
       ...req.body,
@@ -52,8 +66,6 @@ router.post('/', withAuth, (req, res) => {
       });
   }
 });
-
-
 
 router.get("/:id", withAuth, async (req, res) => {  
   try {

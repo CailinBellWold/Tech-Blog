@@ -34,28 +34,22 @@ router.get('/newArticle', withAuth, async (req, res) => {
   }
 });
 
-router.get('/articles/:id', withAuth, async (req, res) => {
+router.get('/updateArticle/:id', withAuth, async (req, res) => {  
   try {
     const articleData = await Article.findByPk(req.params.id, {
-      include: [
-        {
-          model: Comment,
-          attributes: ['content'],
-        },
-        {
-          model: User,
-          attributes: ['username'],
-        },
-      ],
+      where: {
+        user_id: req.session.user_id,
+      },
     });
 
-    const articleSingle = articleData.get({ plain: true });
+    const article = articleData.get({ plain: true });
 
-    res.render('viewArticle', { 
-      articleSingle, 
-      logged_in: req.session.logged_in 
+    res.render('updateArticle', {
+      article,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });

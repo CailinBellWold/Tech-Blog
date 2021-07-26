@@ -49,7 +49,7 @@ router.get('/articles/:id', async (req, res) => {
       include: [
         {
           model: Comment,
-          attributes: ['content'],
+          attributes: ['id', 'content', 'user_id', 'created_at'],
         },
         {
           model: User,
@@ -64,9 +64,12 @@ router.get('/articles/:id', async (req, res) => {
       articleSingle, 
       logged_in: req.session.logged_in 
     });
+    console.log(">>>>>>>View Article by ID WITHOUTH Auth");
+    console.log(">>>>>>>>>>>>>>>articleSingle", articleSingle);
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
 
 module.exports = router;

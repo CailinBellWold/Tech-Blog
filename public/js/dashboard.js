@@ -5,7 +5,7 @@ const addButtonHandler = async (event) => {
 const updateButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
-    document.location.replace(`/api/articles/${id}`);
+    document.location.replace(`/dashboard/updateArticle/${id}`);
   } else {
     alert('Update button did not have a data-id');
   }
