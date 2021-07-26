@@ -1,16 +1,33 @@
 const router = require('express').Router();
-const { Article } = require('../../models');
+const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/', withAuth, async (req, res) => {
-  // const body = req.body;
+router.get('/', async (req, res) => {
   try {
-    const newArticle = await Article.create({
+    const commentData = await Comment.findAll({});
+
+    const comments = commentData.map((comment) => comment.get({ plain: true }));
+
+    res.render('comments', { 
+      comments, 
+      logged_in: req.session.logged_in 
+    });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.post('/', withAuth, async (req, res) => {
+  try {
+    const newComment = await Comment.create({
       ...req.body,
+      // content: req.body.content,
+      // article_id: req.body.article_id,
       user_id: req.session.user_id,
     });
 
-    res.status(200).json(newArticle);
+    res.status(200).json(newComment);
 
   } catch (err) {
     console.log(err);
@@ -18,7 +35,26 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/:id', async (req, res) => {  
+router.post('/', withAuth, (req, res) => {
+  // check the session
+  if (req.session) {
+    Comment.create({
+      comment_text: req.body.comment_text,
+      post_id: req.body.post_id,
+      // use the id from the session
+      user_id: req.session.user_id,
+    })
+      .then(dbCommentData => res.json(dbCommentData))
+      .catch(err => {
+        console.log(err);
+        res.status(400).json(err);
+      });
+  }
+});
+
+
+
+router.get("/:id", withAuth, async (req, res) => {  
   try {
     const articleData = await Article.findByPk(req.params.id, {
       where: {

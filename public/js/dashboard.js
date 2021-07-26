@@ -1,5 +1,5 @@
 const addButtonHandler = async (event) => {
-  document.location.replace('/newArticle');
+  document.location.replace('dashboard/newArticle');
 };
 
 const updateButtonHandler = async (event) => {
