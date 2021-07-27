@@ -33,5 +33,5 @@ document
   .addEventListener('submit', updateArticleFormHandler);
 
 document
-  .getElementByID('btn-cancel')
+  .querySelector('.updateArticleForm')
   .addEventListener('reset', cancelButtonHandler);
