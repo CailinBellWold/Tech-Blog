@@ -1,10 +1,11 @@
 <div class='container-fluid'>
+  
   <section class='article-view'>
     <div class='col-12'>
       <div class='card-deck'>
-        <div class='card my-4' data-id='{{articleSingle.id}}'>
+        <div class='card view-card my-4' data-id='{{articleSingle.id}}'>
           <div class='card-header text-light bg-dark'>
-            <h3>{{article.title}}</h3>
+            <h3>{{articleSingle.title}}</h3>
               <small class='text-right'>Posted by {{articleSingle.user.username}} on {{format_date articleSingle.created_at}}</small>
           </div>
           <div class='card-body' id='content'>{{articleSingle.content}}</div>
@@ -13,13 +14,13 @@
     </div>
   </section>
 
+<div class='comments col-12'>
   {{#if logged_in}}
-  <section class='comment-new'>
+  <section class='comment-new col-12'>
     <form class='newCommentForm'>
       <div class='form-group'>
-      <div class='form-group'>
-        <label for='comment-content'>Comment</label>
-        <input type='text' class='form-control' id='newCommentContent' placeholder='Enter your text here.'>
+        {{!-- <label for='comment-content'><strong>Comment</strong></label> --}}
+        <textarea type='text' class='form-control' id='newCommentContent' rows='3' placeholder='Write a comment to join the discussion!'></textarea>
       </div>
       <div class='btn-group'>
         <button class='btn btn-primary submit' id='btn-comment' data-id='{{articleSingle.id}}' type='submit'>Submit Comment</button>
@@ -29,30 +30,26 @@
   </section>
 
   {{else}}
-  {{!-- Something that asks the user to sign in or sign up to comment, directs them to sign in/up page, then automatically returns them to this comment's page.
-  <li class='nav-item'><a class='nav-link' id='btn-signin' href='/signin' rel='noreferrer noopener'>Sign In</a></li>
-  <li class='nav-item'><a class='nav-link' id='btn-signup' href='/signup' rel='noreferrer noopener'>Sign Up</a></li> --}}
+  <p>To post a comment or an article of your own, <a href='/signin' rel='noreferrer noopener'>Sign In</a> or <a href='/signup' rel='noreferrer noopener'>Sign Up</a>.</p>
   {{/if}}
+
 
 <div class='container-fluid'>
     {{#if articleSingle.Comments.length}}
         {{#each articleSingle.Comments as |comment|}}
             <section class='comments-view'>
                 <div class='col-12'>
-                    <div class='card-deck'>
-                        <div class='card my-4' data-id='{{comment.id}}'>
-                            <div class='card-header text-light bg-dark'>
-                                {{!-- This looks empty on the example --}}
-                            </div>
-                            <div class='card-body' id='content'>{{comment.content}}
-                                <small class='text-right'>Posted by {{comment.user.username}} on {{format_date comment.created_at}}</small>
-                            </div>
+                        <div class='my-3' data-id='{{comment.id}}'>
+                            <p class='comment' id='content'>{{comment.content}}<br>
+                                <small class='align-text-right'>- Posted by {{comment.user.username}} on {{format_date comment.created_at}}</small>
+                            </p>
                         </div>
-                    </div>
                 </div>
             </section>
         {{/each}}
     {{/if}}
+</div>
+
 </div>
 
 </div>

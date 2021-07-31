@@ -9,7 +9,9 @@
     --c-ddslategray: #1d1f22;
     --c-shadow: #644420;
     --c-lshadow: #90612b;
+    --c-dwhitesmoke: #d6d0d0;
     --c-whitesmoke: #f5f5f5;
+    --c-lwhitesmoke: #ffffff;
     --c-lraspberrysorbet: #cd4a77;
     --c-raspberrysorbet: #db2565;
     --c-draspberrysorbet: #d31759;
@@ -21,6 +23,7 @@
     --c-frenchblue: #3078b4;
     --c-dfrenchblue: #276292;
     --c-ddfrenchblue: #1a4a70;
+    --c-white: #ffffff;
 
     /* --c-greygreen: #847d71;
     --c-greypurple: #867472;
@@ -36,7 +39,7 @@
     --c-lbuttercream: #faf8f4;
 
     --c-black: #000000;
-    --c-white: #ffffff;
+
     --c-goldenrod: #f3b43f;
     --c-dgoldenrod: #e4a42e;
     --c-burlywood: #f0c881;
@@ -131,6 +134,9 @@ h5 {
     opacity: 1;
     box-shadow: 10px 15px 25px #644420;
 }
+.card.view-card:hover {
+    opacity: 1;
+}
 
 .card-header {
     color: var(--c-silver) !important;
@@ -138,7 +144,20 @@ h5 {
 }
 
 .signinForm.label {
-    color: var(--c-bu)
+    color: var(--c-dslategray)
+}
+
+.comments {
+    background-color: var(--c-white);
+    border: 1px solid var(--c-dwhitesmoke);
+    padding: 1em;
+}
+
+.comment {
+    border-radius: 10px;
+    padding: 1em;
+    /* border-bottom: 1px solid var(--c-lraspberrysorbet); */
+    background-color: var(--c-dwhitesmoke);
 }
 
 /* .welcome {
@@ -196,25 +215,6 @@ h5 {
     background-color: var(--c-dmarigold);
     border: .1em solid var(--c-ddmarigold);
     box-shadow: 8px 15px 10px var(--c-shadow);
-    transform: scale(1.04);
-}
-
-.btn-danger,
-.btn-danger:active,
-.btn-danger:visited {
-    color: var(--c-white) !important;
-    background-color: var(--c-tomato);
-    border: .1em solid var(--c-dtomato);
-    border-radius: 10px;
-    box-shadow: 8px 10px 10px var(--c-dneutral);
-    margin: .5em 1em 1em 0;
-    cursor: pointer;
-}
-
-.btn-danger:hover {
-    background-color: var(--c-ltomato);
-    border: .1em solid var(--c-tomato);
-    box-shadow: 8px 10px 10px var(--c-dneutral);
     transform: scale(1.04);
 }
 

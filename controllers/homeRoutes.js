@@ -50,6 +50,10 @@ router.get('/articles/:id', async (req, res) => {
         {
           model: Comment,
           attributes: ['id', 'content', 'user_id', 'created_at'],
+          include: {
+            model: User,
+            attributes: ['username']
+          }
         },
         {
           model: User,
