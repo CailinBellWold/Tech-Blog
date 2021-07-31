@@ -91,6 +91,10 @@ From the modern browser of your choice, visit:
 
     4.1 http://localhost:3001
 
+## Deployed App
+
+[This Tech Blog app has been deployed on Heroku and is available here.](https://tech-blog-cailin.herokuapp.com/)
+
 ## Demo 
 
 <!-- Link: [Tech-Blog demo](https://drive.google.com/file/d/1HTyx6dRZKhin4lxi1JXKZvK0jWWVaZga/view) -->
