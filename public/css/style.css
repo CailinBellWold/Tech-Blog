@@ -3,7 +3,29 @@
     --c-ddblue:#060b14;
     --c-dddblue:#020305;
     --c-frenchblue: #3078b4;
+
+    --c-silver: #c6b4ad;
+    --c-dslategray: #2e3136;
+    --c-ddslategray: #1d1f22;
+    --c-shadow: #644420;
+    --c-lshadow: #90612b;
+    --c-whitesmoke: #f5f5f5;
     --c-lraspberrysorbet: #cd4a77;
+    --c-raspberrysorbet: #db2565;
+    --c-draspberrysorbet: #d31759;
+    --c-ddraspberrysorbet: #c70448;
+    --c-dddraspberrysorbet: #ac003c;
+    --c-marigold: #feae51;
+    --c-dmarigold: #e49b48;
+    --c-ddmarigold:#d38b38;
+    --c-frenchblue: #3078b4;
+    --c-dfrenchblue: #276292;
+    --c-ddfrenchblue: #1a4a70;
+
+    /* --c-greygreen: #847d71;
+    --c-greypurple: #867472;
+    --c-dgreypurple: #706067;
+    --c-llpink: #f2d2ce;
     --c-raspberrysorbet: #db2565;
     --c-draspberrysorbet: #d31759;
     --c-ddraspberrysorbet: #c70448;
@@ -11,8 +33,7 @@
     --c-inkwell:  #434852;
     --c-ultimategray: #96999b;
     --c-buttercream: #f0e3ce;
-    --c-marigold: #feae51;
-
+    --c-lbuttercream: #faf8f4;
 
     --c-black: #000000;
     --c-white: #ffffff;
@@ -32,8 +53,8 @@
     --c-lneutral: #f0e8da;
     --c-neutral: #ded7c9;
     --c-dneutral: #c7c0b3;
-    --c-maroon: #862f03;
-    --c-lmaroon: #f1b596;
+    --c-maroon: #662c28;
+    --c-lmaroon: #f1b596; */
 }
 
 html {
@@ -41,16 +62,20 @@ html {
 }
 
 body {
-    background-color: var(--c-ddblue);
+    background-color: var(--c-whitesmoke);
     font-family: 'Poppins', sans-serif;
-    color: var(--c-frenchblue);
+    color: var(--c-ddslategray);
     height: 100vh;
 }
 
 .techblog-nav {
-    background-image: linear-gradient(var(--c-dddblue), var(--c-ddblue));
-    color: var(--c-marigold);
-    box-shadow: 8px 10px 20px var(--c-frenchblue);
+    background-image: linear-gradient(var(--c-dslategray), var(--c-ddslategray));
+}
+
+.navbar-brand {
+    font-family: 'Oswald', sans-serif;
+    font-size: xx-large;
+    text-shadow: 0px .5px var(--c-lshadow);
 }
 
 .custom-toggler .navbar-toggler-icon {
@@ -58,7 +83,7 @@ body {
 }
 
 .custom-toggler.navbar-toggler {
-    border-color: var(--c-marigold);
+    border-color: var(--c-lraspberrysorbet);
     border-width: medium;
 } 
 
@@ -73,40 +98,43 @@ a:visited,
 a:hover,
 a:active { 
     text-decoration: none !important;
-    color: var(--c-frenchblue) !important;
+    color: var(--c-silver) !important;
 }
 
 h2,
 h3, 
 h4, 
 h5 {
-    font-family: 'Roboto', serif;
+    font-family: 'Oswald', serif;
     color: var(--c-marigold)
 }
 
 .card {
-    border-radius: 4px;
-    border-color: var(--c-dddblue);
-    background: var(--c-white);
-    color: var(--c-dddblue);
-    box-shadow: 0 6px 10px rgba(48,120,180,1), 0 0 6px rgba(48,120,180,.5);
-    transition: .4s transform cubic-bezier(.155,1.105,.295,1.12),.4s box-shadow,.4s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
-    opacity: 0.9;
+    background: var(--c-whitesmoke);
+    transition: .4s transform cubic-bezier(.155,1.105,.295,1.12),.4s box-shadow,.4s -webkit-transform cubic-bezier(.155,1.105,.295,1.12); 
+    opacity: 0.95;
+    box-shadow: 5px 10px 25px rgb(100, 68, 32);
+    color: var(--c-ddslategray);
+}
+
+.card-body {
+    /* background: var(--c-whitesmoke);
+    transition: .4s transform cubic-bezier(.155,1.105,.295,1.12),.4s box-shadow,.4s -webkit-transform cubic-bezier(.155,1.105,.295,1.12); 
+    opacity: 0.95;
+    box-shadow: 5px 10px 25px rgb(100, 68, 32); */
+    color: var(--c-ddslategray);
 }
 
 .card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 3px 25px rgba(48,120,180,1);
+    transform: scale(1.003);
+    border-color: var(--c-whitesmoke);
     opacity: 1;
+    box-shadow: 10px 15px 25px #644420;
 }
 
 .card-header {
-    color: var(--c-ultimategray) !important;
-    background-color: var(--c-ddblue) !important;
-}
-
-.card-header:hover {
-    color: var(--c-buttercream) !important;
+    color: var(--c-silver) !important;
+    background-color: var(--c-dslategray) !important;
 }
 
 .signinForm.label {
@@ -135,37 +163,39 @@ h5 {
 .btn-primary,
 .btn-primary:active,
 .btn-primary:visited {
-    color: var(--c-white) !important;
-    background-color: var(--c-draspberrysorbet);
-    border: .1em solid var(--c-ddraspberrysorbet);
+    color: var(--c-whitesmoke) !important;
+    background-color: var(--c-raspberrysorbet);
+    border: .1em solid var(--c-draspberrysorbet);
     border-radius: 10px;
-    box-shadow: 8px 10px 10px var(--c-frenchblue);
+    box-shadow: 8px 10px 10px var(--c-shadow);
     margin: .5em 1em 1em 0;
     cursor: pointer;
 }
 
 .btn-primary:hover {
+    color: var(--c-whitesmoke) !important;
     background-color: var(--c-ddraspberrysorbet);
     border: .1em solid var(--c-dddraspberrysorbet);
-    box-shadow: 8px 10px 10px var(--c-marigold);
+    box-shadow: 8px 15px 10px var(--c-shadow);
     transform: scale(1.04);
 }
 
 .btn-secondary,
 .btn-secondary:active,
 .btn-secondary:visited {
-    background-color: var(--c-neutral);
-    border: .1em solid var(--c-dneutral);
+    color: var(--c-whitesmoke) !important;
+    background-color: var(--c-dmarigold);
+    border: .1em solid var(--c-ddmarigold);
     border-radius: 10px;
-    box-shadow: 8px 10px 10px var(--c-marigold);
+    box-shadow: 8px 10px 10px var(--c-shadow);
     margin: .5em 1em 1em 0;
     cursor: pointer;
 }
 
 .btn-secondary:hover {
-    background-color: var(--c-lneutral);
-    border: .1em solid var(--c-neutral);
-    box-shadow: 8px 10px 10px var(--c-marigold);
+    background-color: var(--c-dmarigold);
+    border: .1em solid var(--c-ddmarigold);
+    box-shadow: 8px 15px 10px var(--c-shadow);
     transform: scale(1.04);
 }
 
@@ -191,19 +221,19 @@ h5 {
 .btn-warning,
 .btn-warning:active,
 .btn-warning:visited {
-    color: var(--c-white) !important;
-    background-color: var(--c-lcyan);
-    border: .1em solid var(--c-dcyan);
+    color: var(--c-whitesmoke) !important;
+    background-color: var(--c-frenchblue);
+    border: .1em solid var(--c-dfrenchblue);
     border-radius: 10px;
-    box-shadow: 8px 10px 10px var(--c-dneutral);
+    box-shadow: 8px 10px 10px var(--c-shadow);
     margin: .5em 1em 1em 0;
     cursor: pointer;
 }
 
 .btn-warning:hover {
-    background-color: var(--c-dcyan);
-    border: .1em solid var(--c-ddcyan);
-    box-shadow: 8px 10px 10px var(--c-dneutral);
+    background-color: var(--c-dfrenchblue);
+    border: .1em solid var(--c-ddfrenchblue);
+    box-shadow: 8px 15px 10px var(--c-shadow);
     transform: scale(1.04);
 }
 

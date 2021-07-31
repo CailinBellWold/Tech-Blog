@@ -5,7 +5,7 @@
         <div class='card my-4' data-id='{{articleSingle.id}}'>
           <div class='card-header text-light bg-dark'>
             <h3>{{article.title}}</h3>
-              <small class='text-right'>Posted by {{articleSingle.user.username}} on {{articleSingle.created_at}}</small>
+              <small class='text-right'>Posted by {{articleSingle.user.username}} on {{format_date articleSingle.created_at}}</small>
           </div>
           <div class='card-body' id='content'>{{articleSingle.content}}</div>
         </div>
@@ -45,7 +45,7 @@
                                 {{!-- This looks empty on the example --}}
                             </div>
                             <div class='card-body' id='content'>{{comment.content}}
-                                <small class='text-right'>Posted by {{comment.user.username}} on {{comment.created_at}}</small>
+                                <small class='text-right'>Posted by {{comment.user.username}} on {{format_date comment.created_at}}</small>
                             </div>
                         </div>
                     </div>

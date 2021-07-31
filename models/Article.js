@@ -26,11 +26,11 @@ Article.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    // updated_at: {
-    //   type: DataTypes.TIMESTAMP,
-    //   defaultValue: NULL,
-    //   onUpdate: DataTypes.CURRENT_TIMESTAMP,
-    // },
+    updated_at: {
+      type: DataTypes.DATE,
+      defaultValue: "",
+      onUpdate: DataTypes.NOW,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
