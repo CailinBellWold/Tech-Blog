@@ -112,6 +112,12 @@ h5 {
     color: var(--c-marigold)
 }
 
+.my-articles {
+    background-color: var(--c-ddslategray);
+    padding: .5em;
+    border-radius: 5px;
+}
+
 .card {
     background: var(--c-whitesmoke);
     transition: .4s transform cubic-bezier(.155,1.105,.295,1.12),.4s box-shadow,.4s -webkit-transform cubic-bezier(.155,1.105,.295,1.12); 
