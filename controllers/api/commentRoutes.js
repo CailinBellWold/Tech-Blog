@@ -33,29 +33,23 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', withAuth, async (req, res) => {
-  console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>ROUTER GET BY ID');
   try {
-    const commentData = await Comment.findByPk(req.params.id, {
+    const commentData = await Comment.findOne({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
-    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>reqParamsID, ReqSessionUserID', req.params.id, req.session.user_id);
     if (!commentData) {
       res.status(404).json({ message: 'No comment found with this id!' });
       return;
     }
-    // console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>Comment.user_id', comment.user_id);
-    // console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>COMMENT', comment);
-    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>commentData', commentData);
     res.status(200).json(commentData);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-//WORKS
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const commentData = await Comment.destroy({

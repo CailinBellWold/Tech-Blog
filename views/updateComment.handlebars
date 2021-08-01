@@ -5,8 +5,7 @@
       <small id='updateCommentHelp' class='form-text text-muted'>NOTE: The comment cannot be blank.</small>
       <form class='updateCommentForm'>
         <div class='form-group'>
-          <label for='comment-content'>Content</label>
-          <input type='text' class='form-control' id='commentContent' value='{{comment.content}}'>
+          <textarea type='text' class='form-control' id='commentContent' rows='3' value='{{comment.content}}'>{{comment.content}}</textarea>
         </div>
         <button class='btn btn-primary' id='btn-save' data-id='{{comment.id}}' type='submit'>Save</button>
         <button class='btn btn-warning' id='btn-cancel' type='reset'>Cancel</button>

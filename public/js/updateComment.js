@@ -14,7 +14,7 @@ const updateCommentFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/homepage');
+      document.location.replace('/');
     } else {
       console.log(err);
       alert('Failed to update article.');
@@ -24,7 +24,7 @@ const updateCommentFormHandler = async (event) => {
 
 const cancelButtonHandler = async () => {
   console.log('CancelBtn');
-  document.location.replace('/homepage');
+  document.location.replace('/');
 }
 
 document

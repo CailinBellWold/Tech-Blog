@@ -34,11 +34,14 @@ router.get('/newArticle', withAuth, async (req, res) => {
   }
 });
 
+
 //RUNS THIS *IF* user ID matches id
 router.get('/updateArticle/:id', withAuth, async (req, res) => {  
   try {
-    const articleData = await Article.findByPk(req.params.id, {
+    // const articleData = await Article.findByPk(req.params.id, {
+    const articleData = await Article.findOne({
       where: {
+        id: req.params.id,
         user_id: req.session.user_id,
       },
     });
