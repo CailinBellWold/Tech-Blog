@@ -34,6 +34,7 @@ router.get('/newArticle', withAuth, async (req, res) => {
   }
 });
 
+//RUNS THIS *IF* user ID matches id
 router.get('/updateArticle/:id', withAuth, async (req, res) => {  
   try {
     const articleData = await Article.findByPk(req.params.id, {

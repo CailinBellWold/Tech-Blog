@@ -22,7 +22,16 @@ const newCommentFormHandler = async (event) => {
 const updateButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
-    document.location.replace(`/comments/updateComment/${id}`);
+
+    const response = await fetch(`/api/comments/${id}`, {
+      method: 'GET',
+    });
+
+    if (response.ok) {
+      document.location.replace(`/updateComment/${id}`);
+    } else {
+      alert('You may only update your own comments.');
+    }
   } else {
     alert('Update button did not have a data-id');
   }
@@ -39,7 +48,7 @@ const deleteButtonHandler = async (event) => {
     if (response.ok) {
       document.location.reload();
     } else {
-      alert('Failed to delete comment');
+      alert('You may only delete your own comments.');
     }
   } else {
     alert('Delete button did not have a data-id');

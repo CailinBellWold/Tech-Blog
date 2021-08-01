@@ -32,6 +32,50 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/:id', withAuth, async (req, res) => {
+  console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>ROUTER GET BY ID');
+  try {
+    const commentData = await Comment.findByPk(req.params.id, {
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    });
+    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>reqParamsID, ReqSessionUserID', req.params.id, req.session.user_id);
+    if (!commentData) {
+      res.status(404).json({ message: 'No comment found with this id!' });
+      return;
+    }
+    // console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>Comment.user_id', comment.user_id);
+    // console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>COMMENT', comment);
+    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>commentData', commentData);
+    res.status(200).json(commentData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//WORKS
+router.delete('/:id', withAuth, async (req, res) => {
+  try {
+    const commentData = await Comment.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    });
+
+    if (!commentData) {
+      res.status(404).json({ message: 'No comment found with this id!' });
+      return;
+    }
+
+    res.status(200).json(commentData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.post('/', withAuth, async (req, res) => {
   try {
     const newComment = await Comment.create({
@@ -47,27 +91,11 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-// router.post('/', withAuth, (req, res) => {
-//   // check the session
-//   if (req.session) {
-//     Comment.create({
-//       comment_text: req.body.comment_text,
-//       post_id: req.body.post_id,
-//       // use the id from the session
-//       user_id: req.session.user_id,
-//     })
-//       .then(dbCommentData => res.json(dbCommentData))
-//       .catch(err => {
-//         console.log(err);
-//         res.status(400).json(err);
-//       });
-//   }
-// });
-
-router.get('/updateComment/:id', withAuth, async (req, res) => {  
+router.get('/updateComment/:id', withAuth, async (req, res) => {
   try {
     const commentData = await Comment.findByPk(req.params.id, {
       where: {
+        id: req.params.id,
         user_id: req.session.user_id,
       },
     });
@@ -110,25 +138,6 @@ router.put('/:id', withAuth, async (req, res) => {
   }
 });
 
-//WORKS
-router.delete('/:id', withAuth, async (req, res) => {
-  try {
-    const commentData = await Comment.destroy({
-      where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
-      },
-    });
 
-    if (!commentData) {
-      res.status(404).json({ message: 'No comment found with this id!' });
-      return;
-    }
-
-    res.status(200).json(commentData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 
 module.exports = router;
