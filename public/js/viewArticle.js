@@ -19,6 +19,33 @@ const newCommentFormHandler = async (event) => {
   }
 };
 
+const updateButtonHandler = async (event) => {
+  if (event.target.hasAttribute('data-id')) {
+    const id = event.target.getAttribute('data-id');
+    document.location.replace(`/comments/updateComment/${id}`);
+  } else {
+    alert('Update button did not have a data-id');
+  }
+};
+
+const deleteButtonHandler = async (event) => {
+  if (event.target.hasAttribute('data-id')) {
+    const id = event.target.getAttribute('data-id');
+
+    const response = await fetch(`/api/comments/${id}`, {
+      method: 'DELETE',
+    });
+
+    if (response.ok) {
+      document.location.reload();
+    } else {
+      alert('Failed to delete comment');
+    }
+  } else {
+    alert('Delete button did not have a data-id');
+  }
+};
+
 const cancelButtonHandler = async () => {
   document.location.replace('/viewArticle');
 }
@@ -27,6 +54,14 @@ document
   .querySelector('.newCommentForm')
   .addEventListener('submit', newCommentFormHandler);
 
-  document
+document
   .querySelector('#btn-cancel')
   .addEventListener('reset', cancelButtonHandler);
+
+document
+  .querySelectorAll('.btn-update')
+  .forEach(btn => btn.addEventListener('click', updateButtonHandler));
+
+document
+  .querySelectorAll('.btn-delete')
+  .forEach(btn => btn.addEventListener('click', deleteButtonHandler));

@@ -1,0 +1,19 @@
+<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-12'>
+      <h2>Update Comment</h2>
+      <small id='updateCommentHelp' class='form-text text-muted'>NOTE: The comment cannot be blank.</small>
+      <form class='updateCommentForm'>
+        <div class='form-group'>
+          <label for='comment-content'>Content</label>
+          <input type='text' class='form-control' id='commentContent' value='{{comment.content}}'>
+        </div>
+        <button class='btn btn-primary' id='btn-save' data-id='{{comment.id}}' type='submit'>Save</button>
+        <button class='btn btn-warning' id='btn-cancel' type='reset'>Cancel</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!--When this is pathed like all of the others, with a . before the /, it isn't finding the file. -->
+<script src='/js/updateComment.js'></script>

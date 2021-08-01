@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { Comment, Article, User} = require('../../models');
 const withAuth = require('../../utils/auth');
 
-//We are always getting all comments by the Article ID. Is this route right, or should it just be /?
 router.get('/', async (req, res) => {
   try {
     const commentData = await Comment.findAll({
@@ -37,8 +36,6 @@ router.post('/', withAuth, async (req, res) => {
   try {
     const newComment = await Comment.create({
       ...req.body,
-      // content: req.body.content,
-      // article_id: req.body.article_id,
       user_id: req.session.user_id,
     });
 
@@ -50,35 +47,35 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-router.post('/', withAuth, (req, res) => {
-  // check the session
-  if (req.session) {
-    Comment.create({
-      comment_text: req.body.comment_text,
-      post_id: req.body.post_id,
-      // use the id from the session
-      user_id: req.session.user_id,
-    })
-      .then(dbCommentData => res.json(dbCommentData))
-      .catch(err => {
-        console.log(err);
-        res.status(400).json(err);
-      });
-  }
-});
+// router.post('/', withAuth, (req, res) => {
+//   // check the session
+//   if (req.session) {
+//     Comment.create({
+//       comment_text: req.body.comment_text,
+//       post_id: req.body.post_id,
+//       // use the id from the session
+//       user_id: req.session.user_id,
+//     })
+//       .then(dbCommentData => res.json(dbCommentData))
+//       .catch(err => {
+//         console.log(err);
+//         res.status(400).json(err);
+//       });
+//   }
+// });
 
-router.get("/:id", withAuth, async (req, res) => {  
+router.get('/updateComment/:id', withAuth, async (req, res) => {  
   try {
-    const articleData = await Article.findByPk(req.params.id, {
+    const commentData = await Comment.findByPk(req.params.id, {
       where: {
         user_id: req.session.user_id,
       },
     });
 
-    const article = articleData.get({ plain: true });
+    const comment = commentData.get({ plain: true });
 
-    res.render('updateArticle', {
-      article,
+    res.render('updateComment', {
+      comment,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -89,43 +86,46 @@ router.get("/:id", withAuth, async (req, res) => {
 
 router.put('/:id', withAuth, async (req, res) => {
   try {
-    const articleData = await Article.update(
-    {
-      title: req.body.articleTitle,
-      content: req.body.articleContent,
-    },
+    const commentData = await Comment.update(
+      ...req.body,
+    // {
+    //   title: req.body.articleTitle,
+    //   content: req.body.articleContent,
+    // },
     {
       where: {
         id: req.params.id,
       },
     });
 
-    if (!articleData) {
-      res.status(404).json({ message: 'No article found with this id.' });
+    if (!commentData) {
+      res.status(404).json({ message: 'No comment found with this id.' });
       return;
     }
 
-    res.status(200).json(articleData);
+    res.status(200).json(commentData);
   } catch (err) {
     console.error(err);
     res.status(400).json(err);
   }
 });
 
+//WORKS
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const articleData = await Article.destroy({
+    const commentData = await Comment.destroy({
       where: {
         id: req.params.id,
+        user_id: req.session.user_id,
       },
     });
 
-    if (!articleData) {
-      res.status(404).json({ message: 'No item(s) found with this id!' });
+    if (!commentData) {
+      res.status(404).json({ message: 'No comment found with this id!' });
       return;
     }
 
-    res.status(200).json(articleData);
+    res.status(200).json(commentData);
   } catch (err) {
     res.status(500).json(err);
   }

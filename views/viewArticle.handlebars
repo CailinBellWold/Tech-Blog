@@ -43,6 +43,10 @@
                             <p class='comment' id='content'>{{comment.content}}<br>
                                 <small class='align-text-right'>- Posted by {{comment.user.username}} on {{format_date comment.created_at}}</small>
                             </p>
+                            <div class='edit-btns'>
+                                    <button class='btn btn-primary btn-update' data-id='{{comment.id}}'>Update</button>
+                                    <button class='btn btn-warning btn-delete' data-id='{{comment.id}}'>Delete</button>
+                            </div>
                         </div>
                 </div>
             </section>
