@@ -1,9 +1,4 @@
 :root {
-    --c-dblue: #14213d;
-    --c-ddblue:#060b14;
-    --c-dddblue:#020305;
-    --c-frenchblue: #3078b4;
-
     --c-silver: #c6b4ad;
     --c-dslategray: #2e3136;
     --c-ddslategray: #1d1f22;
@@ -24,40 +19,6 @@
     --c-dfrenchblue: #276292;
     --c-ddfrenchblue: #1a4a70;
     --c-white: #ffffff;
-
-    /* --c-greygreen: #847d71;
-    --c-greypurple: #867472;
-    --c-dgreypurple: #706067;
-    --c-llpink: #f2d2ce;
-    --c-raspberrysorbet: #db2565;
-    --c-draspberrysorbet: #d31759;
-    --c-ddraspberrysorbet: #c70448;
-    --c-dddraspberrysorbet: #ac003c;
-    --c-inkwell:  #434852;
-    --c-ultimategray: #96999b;
-    --c-buttercream: #f0e3ce;
-    --c-lbuttercream: #faf8f4;
-
-    --c-black: #000000;
-
-    --c-goldenrod: #f3b43f;
-    --c-dgoldenrod: #e4a42e;
-    --c-burlywood: #f0c881;
-    --c-dtomato:rgb(200, 38, 5);
-    --c-tomato: #eb2a03;
-    --c-ltomato: #f32c04;
-    --c-grey: #808080;
-    --c-dblue: #14213d;
-    --c-ddblue:#060b14;
-    --c-ddcyan: #10686d;
-    --c-dcyan: #1d777e;
-    --c-lcyan: #23868d;
-    --c-llneutral: #fffdfa;
-    --c-lneutral: #f0e8da;
-    --c-neutral: #ded7c9;
-    --c-dneutral: #c7c0b3;
-    --c-maroon: #662c28;
-    --c-lmaroon: #f1b596; */
 }
 
 html {
@@ -140,6 +101,7 @@ h5 {
     opacity: 1;
     box-shadow: 10px 15px 25px #644420;
 }
+
 .card.view-card:hover {
     opacity: 1;
 }
@@ -162,28 +124,16 @@ h5 {
 .comment {
     border-radius: 10px;
     padding: 1em;
-    /* border-bottom: 1px solid var(--c-lraspberrysorbet); */
     background-color: var(--c-dwhitesmoke);
 }
 
-/* .welcome {
-    border-radius: 6px;
-    border: 4em;
-    border-color: var(--c-buttercream);
-    background-color: var(--c-frenchblue);
-} */
-/* .cmb-fa {
-    text-decoration: none;
-    color: var(--c-lneutral);
-    font-size: 1.5em;
+.edit-btns-comments {
+    background-color: var(--c-dwhitesmoke);
+    margin: -2em 0 0 0;
+    padding: 0 0 0 1em;
+    border-radius: 10px;
+    text-align: end;
 }
-
-.cmb-fa:hover {
-    text-decoration: none;
-    color: var(--c-llneutral);
-    text-shadow: 8px 10px 10px var(--c-ddblue);
-    transform: scale(1.04);
-} */
 
 .btn-primary,
 .btn-primary:active,

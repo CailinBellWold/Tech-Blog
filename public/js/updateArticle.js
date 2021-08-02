@@ -5,8 +5,8 @@ const updateArticleFormHandler = async (event) => {
   const articleTitle = document.getElementById('articleTitle').value.trim();
   const articleContent = document.getElementById('articleContent').value.trim();
 
-  if (id) {
-    const response = await fetch(`/api/articles/updateArticle/${id}`, {
+  if (id && articleTitle && articleContent) {
+    const response = await fetch(`/api/articles/${id}`, {
       method: 'PUT',
       body: JSON.stringify({ articleTitle, articleContent }),
       headers: {
@@ -20,11 +20,12 @@ const updateArticleFormHandler = async (event) => {
       console.log(err);
       alert('Failed to update article.');
     }
+  } else {
+    alert('Title and Content fields may not be blank.')
   }
 };
 
 const cancelButtonHandler = async () => {
-  console.log('CancelBtn');
   document.location.replace('/dashboard');
 }
 

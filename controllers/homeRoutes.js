@@ -74,6 +74,7 @@ router.get('/articles/:id', async (req, res) => {
   }
 });
 
+//Included this withAuth route here to avoid adding commentRoutes.js file.
 router.get('/updateComment/:id', withAuth, async (req, res) => {  
   try {
     const commentData = await Comment.findByPk(req.params.id, {

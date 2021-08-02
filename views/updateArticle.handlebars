@@ -6,11 +6,11 @@
       <form class='updateArticleForm'>
         <div class='form-group'>
           <label for='article-title'>Title</label>
-          <input type='text' class='form-control' id='articleTitle' value='{{article.title}}'>
+          <input type='text' class='form-control' id='articleTitle' required='true' value='{{article.title}}'>
         </div>
         <div class='form-group'>
           <label for='article-content'>Content</label>
-          <textarea type='text' class='form-control' id='articleContent' rows='10' value='{{article.content}}'>{{article.content}}</textarea>
+          <textarea type='text' class='form-control' id='articleContent' rows='10' required='true' value='{{article.content}}'>{{article.content}}</textarea>
         </div>
         <button class='btn btn-primary' id='btn-save' data-id='{{article.id}}' type='submit'>Save</button>
         <button class='btn btn-warning' id='btn-cancel' type='reset'>Cancel</button>

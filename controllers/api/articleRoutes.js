@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Article } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/newArticle', withAuth, async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     const newArticle = await Article.create({
       ...req.body,
@@ -17,7 +17,7 @@ router.post('/newArticle', withAuth, async (req, res) => {
   }
 });
 
-router.put('/updateArticle/:id', withAuth, async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
   try {
     const articleData = await Article.update(
     {
@@ -61,4 +61,4 @@ router.delete('/:id', withAuth, async (req, res) => {
   }
 });
 
-module.exports = router;
+module.exports = router; 

@@ -38,7 +38,7 @@ Build a CMS-style blog site similar to a Wordpress site, where developers can pu
 13. When a user clicks on the button to create a new blog post, the title and contents of their post are saved and they are taken back to an updated dashboard with the new blog post.
 14. When a user clicks on one of their existing posts in the dashboard, they able to delete or update their post and are taken back to an updated dashboard.
 15. When a user clicks on the logout option in the navigation, they are signed out of the site.
-16. (IN PROGRESS) When a user is idle on the site for more than a set time, they are able to view comments but are prompted to log in again before they can add, update, or delete comments.
+16. When a user is idle on the site for more than a set time, they are able to view comments but are prompted to log in again before they can add, update, or delete comments.
 
 ## Technologies Used
 - JavaScript
