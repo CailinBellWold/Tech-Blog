@@ -65,6 +65,14 @@ a:active {
     color: var(--c-silver) !important;
 }
 
+a:link span,
+a:visited span,
+a:hover span,
+a:active span { 
+    text-decoration: none !important;
+    color: var(--c-ddslategray) !important;
+}
+
 h2,
 h3, 
 h4, 
