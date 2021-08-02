@@ -47,13 +47,13 @@ body {
 }
 
 .custom-toggler.navbar-toggler {
-    border-color: var(--c-lraspberrysorbet);
+    border-color: var(--c-raspberrysorbet);
     border-width: medium;
 } 
 
 main {
-    padding-top: 8rem;
-    padding-bottom: 13rem;
+    padding-top: 7rem;
+    padding-bottom: 8rem;
     width: 100vw;
 }
 
@@ -74,7 +74,7 @@ h5 {
 }
 
 .my-articles {
-    background-color: var(--c-ddslategray);
+    background-image: linear-gradient(var(--c-dslategray), var(--c-ddslategray));
     padding: .5em;
     border-radius: 5px;
 }
@@ -87,19 +87,15 @@ h5 {
     color: var(--c-ddslategray);
 }
 
-.card-body {
-    /* background: var(--c-whitesmoke);
-    transition: .4s transform cubic-bezier(.155,1.105,.295,1.12),.4s box-shadow,.4s -webkit-transform cubic-bezier(.155,1.105,.295,1.12); 
-    opacity: 0.95;
-    box-shadow: 5px 10px 25px rgb(100, 68, 32); */
-    color: var(--c-ddslategray);
-}
-
 .card:hover {
     transform: scale(1.003);
     border-color: var(--c-whitesmoke);
     opacity: 1;
     box-shadow: 10px 15px 25px #644420;
+}
+
+.card-body {
+    color: var(--c-ddslategray);
 }
 
 .card.view-card:hover {
@@ -109,6 +105,10 @@ h5 {
 .card-header {
     color: var(--c-silver) !important;
     background-color: var(--c-dslategray) !important;
+}
+
+.card-header:hover {
+    background-image: linear-gradient(var(--c-dslategray), var(--c-ddslategray));
 }
 
 .signinForm.label {
@@ -129,6 +129,7 @@ h5 {
 
 .edit-btns-comments {
     background-color: var(--c-dwhitesmoke);
+    color: var(--c-raspberrysorbet);
     margin: -2em 0 0 0;
     padding: 0 0 0 1em;
     border-radius: 10px;
@@ -193,23 +194,30 @@ h5 {
     transform: scale(1.04);
 }
 
-/* .footer {
+.footer {
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
     text-align: center;
+    border-top: 3pt solid var(--c-raspberrysorbet);
+}
+
+.footer p {
+    padding-top: 1em;
+    color: var(--c-silver);
+
 }
 
 .cmb-contact {
-    background-color: var(--c-dblue);
-    color: var(--c-lneutral);
+    background-image: linear-gradient(var(--c-dslategray), var(--c-ddslategray));
+    color: var(--c-silver);
 }
 
 .cmb-madeforyou {
-    background-color: var(--c-tomato);
-    color: var(--c-lneutral);
-} */
+    background-color: var(--c-raspberrysorbet);
+    color: var(--c-silver);
+}
 
 /*MediaQueries*/
 /* @media screen and (max-width: 1399px){

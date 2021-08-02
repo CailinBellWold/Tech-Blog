@@ -1,4 +1,5 @@
 <div class='container-fluid'>
+    <h3 class='my-articles'>Articles</h3>
     {{#if articles.length}}
         {{#each articles as |article|}}
             <section class='article-list'>
@@ -9,7 +10,7 @@
                                 <h3>{{article.title}}</h3>
                                 <small class='text-right'>Posted by {{user.username}} on {{format_date article.created_at}}</small>
                             </div>
-                            <div class='card-body' id='content'>{{article.content}}</div></a>
+                            <div class='card-body d-inline-block text-truncate' style='max-width: 100%' id='content' >{{article.content}}</div></a>
                         </div>
                     </div>
                 </div>
