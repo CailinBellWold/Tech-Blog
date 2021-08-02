@@ -220,12 +220,15 @@ h5 {
 }
 
 /*MediaQueries*/
-/* @media screen and (max-width: 1399px){
-    body {
-    margin: 0 2%;
-    }
+@media screen and (max-width: 281px){
+    main {
+    padding-top: 8rem;
+}
+}
 
-    .cmb-media-ul {
-        margin-left: 55rem;
-    }
+/* Found at: https://stackoverflow.com/a/42530093*/
+/*Isn't a perfect solution, but keeps user from having to scroll right to view table data. Buttons still visible on screen.*/
+@media all and (max-width:767px) {
+    .tablewrap tr { display: table;  width:100%; }
+    .tablewrap td { display: table-row; }
 }
