@@ -24,6 +24,7 @@ const updateCommentFormHandler = async (event) => {
   }
 };
 
+// FUTURE DEV: Redirect to the viewArticle page that the comment originated from.
 const cancelButtonHandler = async () => {
   // document.location.replace('/');
   // window.history.go(-1);

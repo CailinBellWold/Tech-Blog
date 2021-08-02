@@ -69,8 +69,7 @@ a:link span,
 a:visited span,
 a:hover span,
 a:active span { 
-    text-decoration: none !important;
-    color: var(--c-ddslategray) !important;
+    color: var(--c-dfrenchblue) !important;
 }
 
 h2,
@@ -235,7 +234,9 @@ h5 {
 }
 
 /* Found at: https://stackoverflow.com/a/42530093*/
-/*Isn't a perfect solution, but keeps user from having to scroll right to view table data. Buttons still visible on screen.*/
+/* NOTE: Isn't a perfect solution, but prevents user 
+from having to scroll right to view table data while 
+keeping buttons visible in main viewport.*/
 @media all and (max-width:767px) {
     .tablewrap tr { display: table;  width:100%; }
     .tablewrap td { display: table-row; }

@@ -7,10 +7,10 @@
 Build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. The site is built from scratch and deployed to Heroku. It follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
 
 ### Motivation
-<!-- Understanding the fundamental architecture of e-commerce platforms.  -->
+This project provided fun opportunities to develop a site from scratch. I really enjoyed getting all of the routes to work properly and updating the UI to match my own aesthetic.
 
 ### Learning Targets
-<!-- This exercise provided opportunities to test my budding skills with Express.js configuration and using Sequelize.  -->
+This exercise provided our fist solo opportunity to build a full-stack web application from scratch. I learned so much while working on this project, including a lot of small nuances that I will know to look for in the future. A blogging site has so much possilbility and I struggled not to spend more time adding on other features that I would love to see (upvotes, an admin account, topics, more developed user profiles, threaded comments).
 
 ## Table of Contents
 - [Core Objectives Met](#Core)
@@ -56,8 +56,6 @@ Build a CMS-style blog site similar to a Wordpress site, where developers can pu
 - [NPM nodemon Package](https://www.npmjs.com/package/nodemon)
 - [NPM connect-session-sequelize Package](https://www.npmjs.com/package/connect-session-sequelize?activeTab=versions)
 
-<!-- - [NPM TestCafe Package](https://www.npmjs.com/package/testcafe) -->
-
 ## Local Installation & Usage
 
 To use this app, you will need a MySQL Workbench account, and to have the app installed on your machine. Documentation with installation instructions are available [here.](https://dev.mysql.com/doc/workbench/en/wb-installing.html) 
@@ -97,7 +95,17 @@ From the modern browser of your choice, visit:
 
 ## Demo 
 
-<!-- Link: [Tech-Blog demo](https://drive.google.com/file/d/1HTyx6dRZKhin4lxi1JXKZvK0jWWVaZga/view) -->
+Homepage in a logged-out state, with appropriate links displayed. Comments on articles cannot be updated or deleted at this stage. After logging in, the option to add comments is made available.
+
+![Tech Blog Homepage.](/public/images/Tech-Blog-Homepage.gif)
+
+Updating and deleting comments while logged in. Only the user's own comments may be updated or deleted.
+
+![Tech Blog Updating or Deleting Comments.](/public/images/Tech-Blog-Updating-or-Deleting-Comments.gif)
+
+The Dashboard while in a logged-in state. The user can add new articles, as well as viewing, updating, or deleting other articles that they have posted. Article fields (title and content) may not be left empty.
+
+![Tech Blog Add Update Delete Articles.](/public/images/Tech-Blog-Add-Update-Delete-Articles.gif)
 
 ## MIT License
 

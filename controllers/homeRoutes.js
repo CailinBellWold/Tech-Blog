@@ -24,6 +24,7 @@ router.get('/', async (req, res) => {
       logged_in: req.session.logged_in 
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -70,11 +71,12 @@ router.get('/articles/:id', async (req, res) => {
       logged_in: req.session.logged_in 
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
 
-//Included this withAuth route here to avoid adding commentRoutes.js file.
+// ORGANIZATIONAL NOTE: Included this one withAuth route here to avoid adding commentRoutes.js file.
 router.get('/updateComment/:id', withAuth, async (req, res) => {  
   try {
     const commentData = await Comment.findByPk(req.params.id, {

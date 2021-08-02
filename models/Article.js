@@ -1,5 +1,3 @@
-//Do Articles need Comment ID foreign keys?
-
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 

@@ -4,7 +4,6 @@ const { User } = require('../../models');
 router.post('/signup', async (req, res) => {
   try {
     const userData = await User.create(req.body);
-    console.log("Signin Route", req.body);
 
     req.session.save(() => {
       req.session.user_id = userData.id;
@@ -20,7 +19,11 @@ router.post('/signup', async (req, res) => {
 
 router.post('/signin', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { username: req.body.username } });
+    const userData = await User.findOne({ 
+      where: { 
+        username: req.body.username, 
+      } 
+    });
 
     if (!userData) {
       res
@@ -46,6 +49,7 @@ router.post('/signin', async (req, res) => {
     });
 
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });

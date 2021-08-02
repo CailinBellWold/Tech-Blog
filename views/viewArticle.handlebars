@@ -30,7 +30,7 @@
   </section>
 
   {{else}}
-  <p>To post a comment or an article of your own, <a href='/signin' rel='noreferrer noopener'>Sign In</a> or <a href='/signup' rel='noreferrer noopener'>Sign Up</a>.</p>
+  <p>To post a comment or an article of your own, <a href='/signin' rel='noreferrer noopener'><span><strong>Sign In</strong></span></a> or <a href='/signup' rel='noreferrer noopener'><span><strong>Sign Up</strong></span></a>.</p>
   {{/if}}
 
 
@@ -43,10 +43,10 @@
       <div class='my-3' data-id='{{comment.id}}'>
         <p class='comment' id='content'>{{comment.content}}<br>
           <small class='align-text-right'>- Posted by {{comment.user.username}} on {{format_date comment.created_at}}</small>
-           <div class='edit-btns-comments'>
-              <small class='btn btn-update' data-id='{{comment.id}}'>update</small> | 
-              <small class='btn btn-delete' data-id='{{comment.id}}'>delete</small>
-            </div >
+          <div class='edit-btns-comments'>
+            <small class='btn btn-update' data-id='{{comment.id}}'>update</small> | 
+            <small class='btn btn-delete' data-id='{{comment.id}}'>delete</small>
+          </div >
         </p>
       </div>
     </div>

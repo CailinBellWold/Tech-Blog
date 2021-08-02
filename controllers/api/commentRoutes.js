@@ -28,6 +28,7 @@ router.get('/', async (req, res) => {
       logged_in: req.session.logged_in 
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -46,6 +47,7 @@ router.get('/:id', withAuth, async (req, res) => {
     }
     res.status(200).json(commentData);
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -105,6 +107,7 @@ router.delete('/:id', withAuth, async (req, res) => {
 
     res.status(200).json(commentData);
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
