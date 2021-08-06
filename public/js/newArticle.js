@@ -27,6 +27,10 @@ document
   .querySelector('.newArticleForm')
   .addEventListener('submit', newArticleFormHandler);
 
+  // document
+  // .querySelector('#btn-cancel')
+  // .addEventListener('reset', cancelButtonHandler);
+
   document
-  .querySelector('#btn-cancel')
+  .querySelector('.newArticleForm')
   .addEventListener('reset', cancelButtonHandler);
